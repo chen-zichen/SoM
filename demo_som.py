@@ -63,6 +63,7 @@ with torch.no_grad():
 @torch.no_grad()
 def inference(image, slider, mode, alpha, label_mode, anno_mode, *args, **kwargs):
 
+    # using slider to determine the mode, seem, semantic-sam, sam
     if slider < 1.5:
         model_name = 'seem'
     elif slider > 2.5:
@@ -136,7 +137,7 @@ class ImageMask(gr.components.Image):
         return super().preprocess(x)
 
 '''
-launch app
+launch app (web interface)
 '''
 
 demo = gr.Blocks()
